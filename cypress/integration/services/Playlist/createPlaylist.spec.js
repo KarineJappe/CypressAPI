@@ -1,14 +1,14 @@
 ///<reference types="cypress"/>
 
+import '@bahmutov/cy-api/support'
+
 const token = Cypress.env("token");
 const Authorization = `Bearer ${token}`;
 describe("Criação de playlist", () => {
   it("Nova playlist", () => {
-    cy.request({
+    cy.api({
       method: "POST",
-      url:
-        Cypress.env("url_post") +
-        "/v1/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
+      url: "/users/31xlpjnmedc23sogwwwlshhmxa6a/playlists",
       headers: {
         Authorization,
       },
